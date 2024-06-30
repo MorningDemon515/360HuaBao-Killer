@@ -81,7 +81,7 @@ void DeleteFiles(std::string dir) {
 
 int main()
 {
-    std::string file;
+	std::string file;
     std::string inputt;
     
     std::cout<<"»¶Ó­À´µ½360±ÚÖ½É±ÊÖ£¡\n";
@@ -115,6 +115,7 @@ int main()
 	
 	system("pause");
 	return 0;
+
 }
 
 
