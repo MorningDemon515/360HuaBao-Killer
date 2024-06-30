@@ -16,7 +16,7 @@ int check2(std::string path)
 	}
 	else
 	{
-		std::cout<< "检测到360壁纸!\n";
+		//std::cout<< "检测到360壁纸!\n";
 		
 		if(rmdir(path.c_str()) == 0)
 		{
@@ -98,6 +98,10 @@ int main()
 	}
 	else
 	{
+		std::cout<< "检测到360壁纸!"<<std::endl;
+		
+		system("pause");
+		
 		DeleteFiles(file);
 		
 		system("pause");
@@ -117,5 +121,4 @@ int main()
 	return 0;
 
 }
-
 
