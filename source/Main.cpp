@@ -12,19 +12,19 @@ int check2(std::string path)
 	
 	if (access(path.c_str(),0) == -1)
 	{
-		std::cout<<"360±ÚÖ½Ã»ÓĞ°²×°\n";
+		std::cout<< "360å£çº¸æ²¡æœ‰å®‰è£…\n";
 	}
 	else
 	{
-		std::cout<<"¼ì²âµ½360±ÚÖ½!\n";
+		std::cout<< "æ£€æµ‹åˆ°360å£çº¸!\n";
 		
 		if(rmdir(path.c_str()) == 0)
 		{
-			std::cout<<"É¾³ı³É¹¦£¡\n";	
+			std::cout<< "åˆ é™¤æˆåŠŸï¼\n";	
 		}
 		else
 	    {
-			std::cout<<"É¾³ıÊ§°Ü\n";
+			std::cout<< "åˆ é™¤å¤±è´¥\n";
 		}
 	}	
 	
@@ -33,44 +33,44 @@ int check2(std::string path)
 }
 
 void DeleteFiles(std::string dir) {
-	//ÔÚÄ¿Â¼ºóÃæ¼ÓÉÏ"\\*.*"½øĞĞµÚÒ»´ÎËÑË÷
+	//åœ¨ç›®å½•åé¢åŠ ä¸Š"\\*.*"è¿›è¡Œç¬¬ä¸€æ¬¡æœç´¢
 	std::string newDir = dir + "\\*.*";
-	//ÓÃÓÚ²éÕÒµÄ¾ä±ú
+	//ç”¨äºæŸ¥æ‰¾çš„å¥æŸ„
 	intptr_t handle;
 	struct _finddata_t fileinfo;
-	//µÚÒ»´Î²éÕÒ
+	//ç¬¬ä¸€æ¬¡æŸ¥æ‰¾
 	handle = _findfirst(newDir.c_str(), &fileinfo);
  
 	if (handle == -1) {
-		std::cout << "ÎŞÎÄ¼ş" << std::endl;
+		std::cout <<  "æ— æ–‡ä»¶" << std::endl;
 		system("pause");
 		return;
 	}
  
 	do
 	{
-		if (fileinfo.attrib & _A_SUBDIR) {//Èç¹ûÎªÎÄ¼ş¼Ğ£¬¼ÓÉÏÎÄ¼ş¼ĞÂ·¾¶£¬ÔÙ´Î±éÀú
+		if (fileinfo.attrib & _A_SUBDIR) {//å¦‚æœä¸ºæ–‡ä»¶å¤¹ï¼ŒåŠ ä¸Šæ–‡ä»¶å¤¹è·¯å¾„ï¼Œå†æ¬¡éå†
 			if (strcmp(fileinfo.name, ".") == 0 || strcmp(fileinfo.name, "..") == 0)
 				continue;
  
-			// ÔÚÄ¿Â¼ºóÃæ¼ÓÉÏ"\\"ºÍËÑË÷µ½µÄÄ¿Â¼Ãû½øĞĞÏÂÒ»´ÎËÑË÷
+			// åœ¨ç›®å½•åé¢åŠ ä¸Š"\\"å’Œæœç´¢åˆ°çš„ç›®å½•åè¿›è¡Œä¸‹ä¸€æ¬¡æœç´¢
 			newDir = dir + "\\" + fileinfo.name;
-			DeleteFiles(newDir.c_str());//ÏÈ±éÀúÉ¾³ıÎÄ¼ş¼ĞÏÂµÄÎÄ¼ş£¬ÔÙÉ¾³ı¿ÕµÄÎÄ¼ş¼Ğ
+			DeleteFiles(newDir.c_str());//å…ˆéå†åˆ é™¤æ–‡ä»¶å¤¹ä¸‹çš„æ–‡ä»¶ï¼Œå†åˆ é™¤ç©ºçš„æ–‡ä»¶å¤¹
 			std::cout << newDir.c_str() << std::endl;
-			if (_rmdir(newDir.c_str()) == 0) {//É¾³ı¿ÕÎÄ¼ş¼Ğ
-				std::cout << "É¾³ıÎÄ¼ş³É¹¦!" << std::endl;
+			if (_rmdir(newDir.c_str()) == 0) {//åˆ é™¤ç©ºæ–‡ä»¶å¤¹
+				std::cout <<  "åˆ é™¤æ–‡ä»¶æˆåŠŸ!" << std::endl;
 			}
 			else {
-				std::cout << "É¾³ıÎÄ¼şÊ§°Ü!" << std::endl;
+				std::cout <<  "åˆ é™¤æ–‡ä»¶å¤±è´¥!" << std::endl;
 			}
 		}
 		else{
 			std::string file_path = dir + "\\" + fileinfo.name;
 			std::cout << file_path.c_str() << std::endl;
-			if (remove(file_path.c_str()) == 0) {//É¾³ıÎÄ¼ş
-				std::cout << "É¾³ı³É¹¦!" << std::endl;
+			if (remove(file_path.c_str()) == 0) {//åˆ é™¤æ–‡ä»¶
+				std::cout <<  "åˆ é™¤æˆåŠŸ!" << std::endl;
 			}else{
-				std::cout << "É¾³ıÊ§°Ü!" << std::endl;
+				std::cout <<  "åˆ é™¤å¤±è´¥!" << std::endl;
 			}
 		}
 	} while (!_findnext(handle, &fileinfo));
@@ -84,9 +84,9 @@ int main()
 	std::string file;
     std::string inputt;
     
-    std::cout<<"»¶Ó­À´µ½360±ÚÖ½É±ÊÖ£¡\n";
-    std::cout<<"ÇëÔÚÏÂ·½ÊäÈëÄã×î³õ¸ø¼ÆËã»úÃüÃûµÄÃû³Æ£¬Ò»°ãÇé¿öÏÂÎªAdministrator\n";
-    std::cout<<"ÄãµÄ¼ÆËã»úÃû³Æ:";
+    std::cout<< "æ¬¢è¿æ¥åˆ°360å£çº¸æ€æ‰‹ï¼\n";
+    std::cout<< "è¯·åœ¨ä¸‹æ–¹è¾“å…¥ä½ æœ€åˆç»™è®¡ç®—æœºå‘½åçš„åç§°ï¼Œä¸€èˆ¬æƒ…å†µä¸‹ä¸ºAdministrator\n";
+    std::cout<< "ä½ çš„è®¡ç®—æœºåç§°:";
     
     std::cin>>inputt;
     
@@ -94,7 +94,7 @@ int main()
     
 	if(check(file) == -1)
 	{
-		std::cout<<"360±ÚÖ½Ã»ÓĞ°²×°"<<std::endl;
+		std::cout<< "360å£çº¸æ²¡æœ‰å®‰è£…"<<std::endl;
 	}
 	else
 	{
@@ -104,11 +104,11 @@ int main()
 		
 		if(check2(file) == 0 )
 		{
-			std::cout<<"É¾³ı³É¹¦\n";
+			std::cout<< "åˆ é™¤æˆåŠŸ\n";
 		}
 		else
 		{
-			std::cout<<"É¾³ıÊ§°Ü\n";
+			std::cout<< "åˆ é™¤å¤±è´¥\n";
 		}	
 		
 	}
