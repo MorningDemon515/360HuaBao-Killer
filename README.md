@@ -13,9 +13,9 @@
  
 * 打开这个cmd，然后打开存储库的根目录
 
-* 输入:mkdir build
+* 输入:
 
-* cd build
+* mkdir build
 
 * cmake -G "MinGW Makefiles" ..
 
